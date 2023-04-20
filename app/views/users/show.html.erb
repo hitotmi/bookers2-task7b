@@ -26,8 +26,8 @@
                 <% if @yesterday_book.count == 0 %>
                   前日の投稿はありません
                 <% else %>
-                　<% @the_day_before =   @today_book.count / @yesterday_book.count.to_f  %>
-                　<%= (@the_day_before * 100).round %>
+                  <% @the_day_before = @today_book.count / @yesterday_book.count.to_f %>
+                  <%= (@the_day_before * 100).round %>
                 <% end %>
               </td>
             </tr>
@@ -47,8 +47,8 @@
                 <% if @last_week_book.count == 0 %>
                   先週の投稿はありません
                 <% else %>
-                　<% @the_week_before =   @this_week_book.count / @last_week_book.count.to_f  %>
-                　<%= (@the_week_before * 100).round %>
+                  <% @the_week_before =   @this_week_book.count / @last_week_book.count.to_f  %>
+                  <%= (@the_week_before * 100).round %>
                 <% end %>
               </td>
             </tr>
