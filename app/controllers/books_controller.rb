@@ -5,8 +5,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @booknew = Book.new
     @book_comment = BookComment.new
-    @today_book = @books.created_today
-    @yesterday_book = @books.created_yesterday
   end
 
   def index

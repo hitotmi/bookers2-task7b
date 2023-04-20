@@ -17,7 +17,8 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
-
+# 　scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
+#   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
 
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
