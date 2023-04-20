@@ -17,8 +17,6 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
-# 　scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
-#   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
 
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
@@ -31,11 +29,11 @@ class User < ApplicationRecord
   def unfollow(user_id)
   relationships.find_by(followed_id: user_id).destroy
   end
-  
+
   def following?(user)
     followings.include?(user)
   end
-  
+
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")
@@ -49,6 +47,6 @@ class User < ApplicationRecord
       @user = User.all
     end
   end
-  
+
 
 end
